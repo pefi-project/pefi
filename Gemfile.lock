@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actioncable (5.0.0)
       actionpack (= 5.0.0)
@@ -165,6 +165,8 @@ GEM
       sprockets (> 2.11)
       sprockets-rails
       tilt
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -214,6 +216,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sassc-rails
+  shoulda-matchers
   spring
   spring-watcher-listen
   sqlite3

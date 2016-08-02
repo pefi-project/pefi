@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -32,6 +32,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl'
   gem 'rubocop', require: false
+  gem 'shoulda-matchers'
 end
 
 group :development do

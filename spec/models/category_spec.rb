@@ -1,21 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  subject { described_class.new }
-
-  describe "Validations" do
-    it "is valid with valid name" do
-      subject.name = "Lunch"
-      expect(subject).to be_valid
-    end
-
-    it "is not valid without name" do
-      expect(subject).to_not be_valid
-    end
+  describe 'Validations' do
+    it { is_expected.to validate_presence_of(:name) }
   end
 
-  describe "Associations" do
-    it { should belong_to(:parent_category) }
-    it { should have_many(:subcategories) }
+  describe 'Associations' do
+    it { is_expected.to belong_to(:parent_category) }
+    it { is_expected.to have_many(:subcategories) }
   end
 end

@@ -1,10 +1,9 @@
 class Expense < ApplicationRecord
-  attr_accessor :name, :date
-
   monetize :price_cents
 
-  validates_presence_of :name, :date, :price_cents
-  validates :price_cents, numericality: { greater_than: 0 }
-
   belongs_to :category
+
+  validates :name, presence: true
+  validates :date, presence: true
+  validates :price_cents, presence: true, numericality: { greater_than: 0 }
 end

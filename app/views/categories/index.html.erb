@@ -5,6 +5,8 @@
     <tr>
         <td><%= category.name  %></td>
         <td><%= link_to "Details", category_path(category) %></td>
+        <td><%= link_to "Edit", edit_category_path(category) %></td>
+        <td><%= link_to "Delete", category_path(category), method: :delete %></td>
     </tr>
 <% end  %>
 </table>

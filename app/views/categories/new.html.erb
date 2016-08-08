@@ -1,4 +1,8 @@
 <%= simple_form_for @category do |f| %>
     <%= f.input :name %>
+    <%= f.association :parent_category %>
+    <%= f.association :subcategories, as: :check_boxes %>
     <%= f.button :submit %>
 <% end %>
+
+<%=  link_to 'Cancel', categories_path %>

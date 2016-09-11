@@ -19,6 +19,8 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+    # TODO: Find a better way to get the available parent categories.
+    #       With the current approach we can make circuit.
     @available_categories = Category.where('id <> ?', @category.id)
   end
 

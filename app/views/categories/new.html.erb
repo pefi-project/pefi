@@ -1,6 +1,7 @@
 <%= simple_form_for @category do |f| %>
     <%= f.input :name %>
-    <%= f.association :parent_category, collection: @available_categories %>
+    <%= f.association :parent_category, collection: @available_categories
+                                            prompt: 'Choose category' %>
     <%= f.button :submit %>
 <% end %>
 

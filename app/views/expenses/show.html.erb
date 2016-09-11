@@ -1,6 +1,9 @@
 <h3>Expense: <%= @expense.name %></h3>
-<h3>Amount: <%= @expense.price %></h3>
-<h3>Category: <%= link_to @expense.category.name, category_path(@expense.category) %></h3>
+
+<p>
+    Amount: <%= @expense.price %><br>
+    Category: <%= link_to @expense.category.name, category_path(@expense.category) %>
+</p>
 
 <%= link_to 'Edit', edit_expense_path(@expense) %>
 <%= link_to 'All expenses', expenses_path %>

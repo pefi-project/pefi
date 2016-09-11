@@ -1,4 +1,15 @@
 <h3>Category name: <%=  @category.name  %></h3>
 
+<p>
+    <table>
+        <% @category.expenses.each do |expense| %>
+            <tr>
+                <td><%= link_to "#{expense.name} (#{expense.price})", expense_path(expense) %></td>
+                <td><%= link_to 'Delete', expense_path(expense), method: :delete %></td>
+            </tr>
+        <% end %>
+    </table>
+</p>
+
 <%=  link_to 'Edit', edit_category_path(@category) %>
 <%=  link_to 'All categories', categories_path %>

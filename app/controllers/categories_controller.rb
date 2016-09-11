@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @available_categories = Category.all
   end
 
   def create
@@ -18,6 +19,7 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+    @available_categories = Category.where('id <> ?', @category.id)
   end
 
   def update
@@ -41,6 +43,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :parent_category_id)
   end
 end

@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'shoulda-matchers'
   gem 'guard-rspec', require: false
+  gem 'fuubar'
 end
 
 group :development do

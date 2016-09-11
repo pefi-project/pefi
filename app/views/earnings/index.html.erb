@@ -1,0 +1,14 @@
+<h1>Listing earnings</h1>
+
+<p>
+    <table>
+        <% @earnings.each do |earning| %>
+            <tr>
+                <td><%= link_to "#{earning.name} (#{earning.amount})", earning_path(earning) %></td>
+                <td><%= link_to 'Delete', earning_path(earning), method: :delete %></td>
+            </tr>
+        <% end  %>
+    </table>
+</p>
+
+<%=  link_to 'Add earning', new_earning_path %>

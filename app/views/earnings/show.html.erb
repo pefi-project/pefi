@@ -1,0 +1,9 @@
+<h3>Earning: <%= @earning.name %></h3>
+
+<p>
+    Amount: <%= @earning.amount %><br>
+    Date: <%= @earning.date %>
+</p>
+
+<%= link_to 'Edit', edit_earning_path(@earning) %>
+<%= link_to 'All earnings', earnings_path %>

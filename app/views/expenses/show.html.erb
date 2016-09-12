@@ -2,6 +2,7 @@
 
 <p>
     Amount: <%= @expense.price %><br>
+    Date: <%= @expense.date %><br>
     Category: <%= link_to @expense.category.name, category_path(@expense.category) %>
 </p>
 

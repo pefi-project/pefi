@@ -1,14 +1,5 @@
 <h1>Listing expenses</h1>
 
-<p>
-    <table>
-        <% @expenses.each do |expense| %>
-            <tr>
-                <td><%= link_to "#{expense.name} (#{expense.price})", expense_path(expense) %></td>
-                <td><%= link_to 'Delete', expense_path(expense), method: :delete %></td>
-            </tr>
-        <% end  %>
-    </table>
-</p>
+<%= render 'shared/index_expenses', expenses: @expenses %>
 
 <%=  link_to 'Add expense', new_expense_path %>

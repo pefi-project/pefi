@@ -1,0 +1,6 @@
+<h3><%= "#{entity.class.to_s}: #{entity.name}" %></h3>
+
+<%= yield %>
+
+<%= link_to 'Edit', yield(:edit_path) %>
+<%= link_to "All #{entity.class.to_s.pluralize.downcase}", yield(:index_path) %>

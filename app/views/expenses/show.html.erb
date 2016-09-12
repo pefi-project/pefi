@@ -1,10 +1,10 @@
-<h3>Expense: <%= @expense.name %></h3>
+<% provide(:edit_path, edit_expense_path(@expense)) %>
+<% provide(:index_path, expenses_path) %>
 
-<p>
-    Amount: <%= @expense.price %><br>
-    Date: <%= @expense.date %><br>
-    Category: <%= link_to @expense.category.name, category_path(@expense.category) %>
-</p>
-
-<%= link_to 'Edit', edit_expense_path(@expense) %>
-<%= link_to 'All expenses', expenses_path %>
+<%= render layout: 'shared/show_layout', locals: {entity: @expense} do %>
+    <p>
+        Amount: <%= @expense.price %><br>
+        Date: <%= @expense.date %><br>
+        Category: <%= link_to @expense.category.name, category_path(@expense.category) %>
+    </p>
+<% end %>

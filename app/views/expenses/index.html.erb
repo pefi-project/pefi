@@ -1,5 +1,3 @@
-<h1>Listing expenses</h1>
-
-<%= render 'shared/index_expenses', expenses: @expenses %>
-
-<%=  link_to 'Add expense', new_expense_path %>
+<%= render layout: 'shared/index_layout', locals: { type: :expense } do %>
+    <%= render 'shared/list_entities', entities: @expenses %>
+<% end %>

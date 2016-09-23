@@ -1,0 +1,5 @@
+<h1>Listing <%= type.to_s.pluralize %></h1>
+
+<%= yield %>
+
+<%=  link_to "Add #{type}", [:new, type] %>

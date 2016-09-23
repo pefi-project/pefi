@@ -1,6 +1,3 @@
-<% provide(:edit_path, edit_category_path(@category)) %>
-<% provide(:index_path, categories_path) %>
-
 <%= render layout: 'shared/show_layout', locals: { entity: @category } do %>
-    <%= render 'shared/index_expenses', expenses: @category.expenses %>
+    <%= render 'shared/list_entities', type: :expense, entities: @category.expenses %>
 <% end %>

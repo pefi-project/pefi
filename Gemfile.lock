@@ -210,15 +210,11 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-<<<<<<< HEAD
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
     sixarm_ruby_unaccent (1.1.1)
     slop (3.6.0)
-=======
-    sixarm_ruby_unaccent (1.1.1)
->>>>>>> origin/master
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)

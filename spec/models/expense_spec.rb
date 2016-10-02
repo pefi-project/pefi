@@ -13,4 +13,8 @@ RSpec.describe Expense, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to(:category) }
   end
+
+  describe '#description' do
+    it 'is pending'
+  end
 end

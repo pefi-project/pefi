@@ -1,0 +1,10 @@
+<p>
+    <table>
+        <% entities.each do |entity| %>
+            <tr>
+                <td><%= link_to "#{entity.description}", entity %></td>
+                <td><%= link_to 'Delete', entity, method: :delete %></td>
+            </tr>
+        <% end  %>
+    </table>
+</p>

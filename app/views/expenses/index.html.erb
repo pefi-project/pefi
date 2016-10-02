@@ -1,0 +1,3 @@
+<%= render layout: 'shared/index_layout', locals: { type: :expense } do %>
+    <%= render 'shared/list_entities', entities: @expenses %>
+<% end %>

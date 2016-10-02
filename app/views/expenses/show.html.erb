@@ -1,0 +1,7 @@
+<%= render layout: 'shared/show_layout', locals: {entity: @expense} do %>
+    <p>
+        Amount: <%= @expense.price %><br>
+        Date: <%= @expense.date %><br>
+        Category: <%= link_to @expense.category.name, category_path(@expense.category) %>
+    </p>
+<% end %>

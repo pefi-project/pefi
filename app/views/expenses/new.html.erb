@@ -1,0 +1,8 @@
+<%= simple_form_for @expense do |f| %>
+    <%= f.input :price_cents %>
+    <%= f.input :name %>
+    <%= f.association :category %>
+    <%= f.button :submit %>
+<% end %>
+
+<%=  link_to 'Cancel', expenses_path %>

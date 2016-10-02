@@ -26,6 +26,7 @@ gem 'jbuilder'
 # gem 'capistrano-rails', group: :development
 
 gem 'money-rails'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -34,6 +35,8 @@ group :development, :test do
   gem 'factory_girl'
   gem 'rubocop', require: false
   gem 'shoulda-matchers'
+  gem 'guard-rspec', require: false
+  gem 'fuubar'
 end
 
 group :development do

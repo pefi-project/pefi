@@ -7,4 +7,8 @@ class Category < ApplicationRecord
   belongs_to :parent_category, class_name: 'Category', optional: true
 
   has_many :expenses
+
+  def description
+    name
+  end
 end

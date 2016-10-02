@@ -1,0 +1,7 @@
+<%= simple_form_for @earning do |f| %>
+    <%= f.input :amount_cents %>
+    <%= f.input :name %>
+    <%= f.button :submit %>
+<% end %>
+
+<%=  link_to 'Cancel', earnings_path %>

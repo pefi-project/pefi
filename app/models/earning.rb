@@ -4,4 +4,8 @@ class Earning < ApplicationRecord
   validates :name, presence: true
   validates :date, presence: true
   validates :amount_cents, presence: true, numericality: { greater_than: 0 }
+
+  def description
+    "#{name} (#{amount})"
+  end
 end

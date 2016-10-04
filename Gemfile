@@ -37,6 +37,9 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'guard-rspec', require: false
   gem 'fuubar'
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'poltergeist'
 end
 
 group :development do

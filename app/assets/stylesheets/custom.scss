@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  padding-top: 60px;
+}
+
 @media screen and (min-width:768px){
   .navbar-brand-centered {
     position: absolute;
@@ -13,4 +17,31 @@
   .navbar>.container-fluid .navbar-brand-centered {
     margin-left: -80px;
   }
+
+  #sidebar.affix {
+    width: 182.5px;
+    height: 182.5px;
+  }
+}
+
+@media (min-width: 992px) {
+  #sidebar.affix {
+    width: 237.5px;
+    height: 237.5px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+.main {
+  background-color: green;
+  height: 2000px;
+}
+
+.sidebar {
+  background-color: red;
+
 }

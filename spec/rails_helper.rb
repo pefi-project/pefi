@@ -58,6 +58,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include FactoryGirl::Syntax::Methods
 end
 
 Capybara.register_driver :poltergeist do |app|
@@ -75,3 +77,5 @@ Shoulda::Matchers.configure do |config|
     with.library :active_model
   end
 end
+
+FactoryGirl.reload

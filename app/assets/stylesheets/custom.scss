@@ -1,0 +1,66 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$background-grey: #e4f5e2;
+$border-color: #00A877;
+
+body {
+  padding-top: 60px;
+  background-color: $background-grey;
+}
+
+.navbar-default {
+  background-color: white;
+  border-color: $border-color;
+}
+
+#navbar a:hover {
+  padding-bottom: 10px;
+  border-bottom: 5px solid $border-color;
+}
+
+@media screen and (min-width:768px){
+  .navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 160px;
+    text-align: center;
+  }
+  .navbar>.container .navbar-brand-centered,
+  .navbar>.container-fluid .navbar-brand-centered {
+    margin-left: -80px;
+  }
+
+  #sidebar.affix {
+    width: 182.5px;
+    height: 182.5px;
+  }
+}
+
+@media (min-width: 992px) {
+  #sidebar.affix {
+    width: 237.5px;
+    height: 237.5px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
+.bordered {
+  border: 2px solid $border-color;
+  border-radius: 5px;
+}
+
+.main {
+  background-color: white;
+  height: 2000px;
+}
+
+.sidebar {
+  background-color: white;
+}

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pefi-project/pefi.svg?branch=master)](https://travis-ci.org/pefi-project/pefi)
+
 # What is PeFi
 
 **PeFi** stands for **Pe**rsonal **Fi**nance. It is a hobby project aimed to solve a simple yet boring task - tracking your personal finances. And just to make sure the purpose is clear let me tell you what PeFi is not:

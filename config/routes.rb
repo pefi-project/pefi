@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/hello', to: 'application#hello'
+  root to: 'expenses#index'
 
   resources :categories
   resources :earnings

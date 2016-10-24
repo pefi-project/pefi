@@ -11,6 +11,7 @@ gem 'puma'
 gem 'sassc-rails'
 gem 'uglifier'
 gem 'coffee-rails'
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

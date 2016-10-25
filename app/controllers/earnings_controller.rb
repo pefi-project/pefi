@@ -1,4 +1,5 @@
 class EarningsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @earnings = Earning.all

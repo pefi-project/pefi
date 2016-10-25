@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'expenses#index'
+  root 'expenses#index'
 
   resources :categories
   resources :earnings

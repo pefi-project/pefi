@@ -12,12 +12,19 @@
       <%= render 'layouts/navbar' %>
       <div class="container">
           <div class="row">
-              <div class="col-sm-3 affix hidden-xs bordered sidebar" id="sidebar">
-              </div>
+              <% if user_signed_in? %>
+                  <div class="col-sm-3 affix hidden-xs bordered sidebar"
+                       id="sidebar">
+                  </div>
 
-              <div class="col-sm-9 col-sm-offset-3 bordered main">
-                  <%= yield %>
-              </div>
+                  <div class="col-sm-9 col-sm-offset-3 bordered main">
+                      <%= yield %>
+                  </div>
+              <% else %>
+                  <div class="col-sm-4 col-sm-offset-4 bordered login">
+                      <%= yield %>
+                  </div>
+              <% end %>
           </div>
       </div>
   </body>

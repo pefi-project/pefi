@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/hello', to: 'application#hello'
+  devise_for :users
+  root 'application#home'
 
   resources :categories
   resources :earnings

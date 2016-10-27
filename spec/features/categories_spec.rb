@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Category management', js: true do
   scenario 'Creating new category' do
+    user = FactoryGirl.create(:user)
+    login_as(user, scope: :user)
+
     visit new_category_path
 
     within('#new_category') do

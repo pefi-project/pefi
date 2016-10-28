@@ -17,7 +17,9 @@ feature 'Category management', js: true do
   end
 
   scenario 'List categories' do
-    skip 'the category names are not listed yet'
+    user = FactoryGirl.create(:user)
+    login_as(user, scope: :user)
+
     create :category, name: 'Category 1'
     create :category, name: 'Category 2'
 

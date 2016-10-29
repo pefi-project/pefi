@@ -17,6 +17,10 @@ feature 'Category management', js: true do
       new_category = Category.last
       expect(new_category).to be
       expect(new_category.name).to eq('Test')
+
+      expect(page).to have_current_path(category_path(new_category))
+      expect(page).to have_link('Edit', href: edit_category_path(new_category))
+      expect(page).to have_link('All categories', href: categories_path)
     end
 
     scenario 'List categories' do

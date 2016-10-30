@@ -1,0 +1,73 @@
+AllCops:
+  Include:
+    - '**/*.gemspec'
+    - '**/Rakefile'
+  Exclude:
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'db/**/*'
+  TargetRubyVersion: 2.3
+
+# Use UTF-8 as the source file encoding.
+Encoding:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
+ClassLength:
+  Enabled: false
+
+ModuleLength:
+  Enabled: false
+
+CyclomaticComplexity:
+  Max: 40
+
+PerceivedComplexity:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+FormatString:
+  EnforcedStyle: format
+
+GlobalVars:
+  Enabled: false
+
+HandleExceptions:
+  Enabled: false
+
+IndentHash:
+  EnforcedStyle: consistent
+
+MethodLength:
+  Max: 120
+
+ModuleFunction:
+  Enabled: false
+
+MultilineBlockChain:
+  Enabled: false
+
+ParameterLists:
+  Max: 7
+
+Style/BlockComments:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

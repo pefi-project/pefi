@@ -63,6 +63,9 @@ In this section you can explore where your moeny goes - food, gaming, charity, c
 
 ![PeFi home screen 1](https://github.com/pefi-project/pefi/blob/master/png/pefistats.png)
 
+# Set up development environment
+The project is using [Docker][7] and docker-compose, previously known as [Fig][8], to set up easily reproduceable development environment. Simply execute ```docker-compose up``` in the project directory and it will take care of everything. For more information on installing and configuring docker and docker-compose check the [docs](https://docs.docker.com/).
+
 # Epilogue
 If you find the project intresting and want to share an idea or help feel free to contact [me][5]. Sketches are built and exported to PNG using [Pencil][6]. Pencil's project file is ```PeFi_sketches.ep```. 
 
@@ -73,3 +76,5 @@ If you find the project intresting and want to share an idea or help feel free t
 [4]: https://twitter.com/
 [5]: https://github.com/hristoyankov
 [6]: http://pencil.evolus.vn/
+[7]: https://www.docker.com/
+[8]: http://www.fig.sh/

@@ -24,13 +24,18 @@ feature 'Category management', js: true do
     end
 
     scenario 'List categories' do
-      create :category, name: 'Category 1'
-      create :category, name: 'Category 2'
+      names = %w(Category1 Category2)
+      names.each { |name| create :category, name: name }
 
       visit categories_path
 
-      expect(page).to have_content('Category 1')
-      expect(page).to have_content('Category 2')
+      names.each do |name|
+        category = Category.find_by(name: name)
+        expect(page).to have_content(category.name)
+        expect(page).to have_link('Delete', href: category_path(category))
+      end
+
+      expect(page).to have_link('Add category', href: new_category_path)
     end
   end
 end

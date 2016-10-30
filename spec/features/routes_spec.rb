@@ -7,6 +7,7 @@ feature 'GET routes', js: true do
 
       paths.each do |path|
         visit path
+
         expect(page).to have_current_path(new_user_session_path)
       end
     end
@@ -21,8 +22,15 @@ feature 'GET routes', js: true do
     scenario 'should load successfully' do
       paths.each do |path|
         visit path
+
         expect(page).to have_current_path(path)
       end
+    end
+
+    scenario 'default route' do
+      visit root_path
+
+      expect(page).to have_current_path(expenses_path)
     end
   end
 

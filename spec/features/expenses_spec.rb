@@ -30,6 +30,17 @@ feature 'Expenses', js: true do
     expect(page).to have_link('All expenses', href: expenses_path)
   end
 
+  scenario 'Delete expense' do
+    create :expense, beer
+
+    visit expenses_path
+    click_on 'Delete'
+
+    expect(Expense.last).to be_nil
+    expect(page).to have_current_path(expenses_path)
+    expect(page).not_to have_link('Delete')
+  end
+
   scenario 'Listing all expenses' do
     expenses.each { |e| create :expense, e }
 

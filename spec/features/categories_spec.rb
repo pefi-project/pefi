@@ -45,6 +45,15 @@ feature 'Category management', js: true do
     expect(page).to have_link('All categories', href: categories_path)
   end
 
+  scenario 'Deleting category' do
+    visit categories_path
+    test_categories.each { first(:link, 'Delete').click }
+
+    expect(Category.last).to be_nil
+    expect(page).to have_current_path(categories_path)
+    expect(page).not_to have_link('Delete')
+  end
+
   scenario 'List categories' do
     visit categories_path
 

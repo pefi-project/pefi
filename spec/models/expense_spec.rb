@@ -15,6 +15,9 @@ RSpec.describe Expense, type: :model do
   end
 
   describe '#description' do
-    it 'is pending'
+    expense = Expense.new(price_cents: 5000, name: 'Beer')
+    it 'must include both name and price' do
+      expect(expense.description).to eq('Beer (50.00)')
+    end
   end
 end

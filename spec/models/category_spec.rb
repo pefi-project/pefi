@@ -6,6 +6,7 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'Associations' do
+    it { is_expected.to belong_to(:user) }
     it { is_expected.to belong_to(:parent_category) }
     it { is_expected.to have_many(:subcategories) }
     it { is_expected.to have_many(:expenses) }

@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.where(user: current_user)
   end
 
   def new
@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = Category.new(category_params.merge(user: current_user))
     if @category.save
       redirect_to @category
     else

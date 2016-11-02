@@ -1,6 +1,8 @@
-# Used for expense categorization.
+# Manage expense categorization.
 class Category < ApplicationRecord
   validates :name, presence: true
+
+  belongs_to :user
 
   has_many :subcategories, class_name: 'Category',
                            foreign_key: 'parent_category_id'

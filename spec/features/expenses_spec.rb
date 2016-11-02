@@ -5,7 +5,7 @@ feature 'Expenses', js: true do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
 
-    categories.values.each { |name| create :category, name: name }
+    categories.values.each { |name| create :category, name: name, user: user }
   end
 
   scenario 'Log expense' do

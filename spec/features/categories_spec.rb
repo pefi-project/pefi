@@ -2,10 +2,9 @@ require 'rails_helper'
 
 feature 'Category management', js: true do
   before(:each) do
-    user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
 
-    test_categories.each { |name| create :category, name: name }
+    test_categories.each { |name| create :category, name: name, user: user }
   end
 
   scenario 'Creating new top level category' do
@@ -20,6 +19,7 @@ feature 'Category management', js: true do
     expect(new_category).to be
     expect(new_category.name).to eq(test_category)
     expect(new_category.parent_category).to be_nil
+    expect(new_category.user).to eq(user)
 
     expect(page).to have_current_path(category_path(new_category))
     expect(page).to have_link('Edit', href: edit_category_path(new_category))
@@ -65,6 +65,15 @@ feature 'Category management', js: true do
     expect(page).to have_link('Add category', href: new_category_path)
   end
 
+  scenario 'Current user should see only their categories' do
+    login_as((create :user))
+
+    visit categories_path
+
+    Category.find_each { |c| expect(page).not_to have_content(c.name) }
+  end
+
+  let(:user) { create :user }
   let(:test_categories) { %w(Category1 Category2) }
   let(:test_category) { 'Test' }
 end

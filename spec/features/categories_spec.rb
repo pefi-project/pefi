@@ -65,20 +65,23 @@ feature 'Category management', js: true do
     expect(page).to have_link('Add category', href: new_category_path)
   end
 
-  scenario 'Current user should see only their categories' do
+  scenario 'User should see only their categories' do
+
+  end
+
+  scenario 'User should not be able to CRUD other users\' categories' do
     login_as((create :user))
 
-    # Actions:
-    #   - index
     visit categories_path
 
     Category.find_each { |c| expect(page).not_to have_content(c.name) }
 
-    #   - show
-    visit '/categories/89'
+    ['/categories/42', '/categories/42/edit'].each do |path|
+      visit path
 
-    # TODO: Add check for flash message ... someday
-    expect(page).to have_current_path(categories_path)
+      # TODO: Add check for flash message ... someday
+      expect(page).to have_current_path(categories_path)
+    end
   end
 
   let(:user) { create :user }

@@ -1,16 +1,12 @@
 class CategoriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-  before_action only: [:index] { @categories = current_user.categories }
-  before_action only: [:show] do
-    @category = current_user.categories.find(params[:id])
-  end
-
-  def index
-  end
+  before_action :load_categories, only: [:index, :new]
+  before_action :load_current_category,
+                only: [:show, :category, :destroy, :edit]
 
   def new
     @category = Category.new
-    @available_categories = current_user.categories.where.not(id: @category.id)
+    @available_categories = @categories
   end
 
   def create
@@ -23,14 +19,10 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
-    # TODO: Find a better way to get the available parent categories.
-    #       With the current approach we can make circuit.
-    @available_categories = current_user.categories.where.not(id: @category.id)
+    @available_categories = @categories.where.not(id: params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
     if @category.update_attributes(category_params)
       redirect_to categories_path
     else
@@ -38,11 +30,8 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def destroy
-    Category.find(params[:id]).destroy
+    @category.destroy
     redirect_to categories_path
   end
 
@@ -55,5 +44,14 @@ class CategoriesController < ApplicationController
   def record_not_found
     # TODO: Add flash error message
     redirect_to action: 'index'
+  end
+
+  def load_categories
+    @categories ||= current_user.categories
+  end
+
+  def load_current_category
+    load_categories
+    @category ||= @categories.find(params[:id])
   end
 end

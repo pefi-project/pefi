@@ -42,7 +42,7 @@ feature 'Category management', js: true do
 
     expect(page).to have_current_path(category_path(new_category))
     expect(page).to have_link('Edit', href: edit_category_path(new_category))
-    expect(page).to have_link('All categories', href: categories_path)
+  expect(page).to have_link('All categories', href: categories_path)
   end
 
   scenario 'Deleting category' do
@@ -68,9 +68,17 @@ feature 'Category management', js: true do
   scenario 'Current user should see only their categories' do
     login_as((create :user))
 
+    # Actions:
+    #   - index
     visit categories_path
 
     Category.find_each { |c| expect(page).not_to have_content(c.name) }
+
+    #   - show
+    visit '/categories/89'
+
+    # TODO: Add check for flash message ... someday
+    expect(page).to have_current_path(categories_path)
   end
 
   let(:user) { create :user }

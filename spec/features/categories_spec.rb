@@ -50,11 +50,14 @@ feature 'Category management', js: true do
 
   scenario 'Deleting category' do
     visit categories_path
-    test_categories.each { first(:link, 'Delete').click }
+    deleted_category = Category.find_by(name: test_categories.first)
+    remained_category = Category.find_by(name: test_categories.second)
 
-    expect(Category.last).to be_nil
+    first(:link, 'Delete').click
+
     expect(page).to have_current_path(categories_path)
-    expect(page).not_to have_link('Delete')
+    expect(page).not_to have_link(href: category_path(deleted_category))
+    expect(page).to have_link(href: category_path(remained_category))
   end
 
   scenario 'List categories' do

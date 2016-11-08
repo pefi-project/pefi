@@ -88,6 +88,11 @@ feature 'Expenses', js: true do
       expect(page).to have_link("#{e.name} (#{e.price})", href: expense_path(e))
       expect(page).to have_link('Delete', href: expense_path(e))
     end
+    Expense.where.not(category: booze).find_each do |e|
+      expect(page).not_to have_link("#{e.name} (#{e.price})",
+                                    href: expense_path(e))
+      expect(page).not_to have_link('Delete', href: expense_path(e))
+    end
     expect(page).to have_link('Edit', href: edit_category_path(booze))
     expect(page).to have_link('All categories', href: categories_path)
   end

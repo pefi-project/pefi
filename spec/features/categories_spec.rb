@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 feature 'Category management', js: true do
+  let(:test_categories) { %w(Category1 Category2) }
+  let(:test_category) { 'Test' }
+
   before(:each) do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
@@ -64,7 +67,4 @@ feature 'Category management', js: true do
 
     expect(page).to have_link('Add category', href: new_category_path)
   end
-
-  let(:test_categories) { %w(Category1 Category2) }
-  let(:test_category) { 'Test' }
 end

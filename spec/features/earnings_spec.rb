@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 feature 'Earnings', js: true do
+  let(:test_earnings) { %w(Paycheck LotteryTickets) }
+  let(:paycheck) do
+    {
+      name: 'Paycheck',
+      amount_cents: 500_000
+    }
+  end
+
   before(:each) do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
@@ -47,13 +55,5 @@ feature 'Earnings', js: true do
     end
 
     expect(page).to have_link('Add earning', href: new_earning_path)
-  end
-
-  let(:test_earnings) { %w(Paycheck LotteryTickets) }
-  let(:paycheck) do
-    {
-      name: 'Paycheck',
-      amount_cents: 500_000
-    }
   end
 end

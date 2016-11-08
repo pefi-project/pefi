@@ -1,6 +1,32 @@
 require 'rails_helper'
 
 feature 'Expenses', js: true do
+  let(:categories) { { booze: 'Booze', lunch: 'Lunch' } }
+  let(:booze) { Category.find_by(name: categories[:booze]) }
+  let(:lunch) { Category.find_by(name: categories[:lunch]) }
+  let(:expenses) { [beer, whiskey, steak] }
+  let(:beer) do
+    {
+      price_cents: 2500,
+      name: 'Beer',
+      category: booze
+    }
+  end
+  let(:whiskey) do
+    {
+      price_cents: 35_000,
+      name: 'Whiskey',
+      category: booze
+    }
+  end
+  let(:steak) do
+    {
+      price_cents: 15_000,
+      name: 'Steak',
+      category: lunch
+    }
+  end
+
   before(:each) do
     user = FactoryGirl.create(:user)
     login_as(user, scope: :user)
@@ -64,31 +90,5 @@ feature 'Expenses', js: true do
     end
     expect(page).to have_link('Edit', href: edit_category_path(booze))
     expect(page).to have_link('All categories', href: categories_path)
-  end
-
-  let(:categories) { { booze: 'Booze', lunch: 'Lunch' } }
-  let(:booze) { Category.find_by(name: categories[:booze]) }
-  let(:lunch) { Category.find_by(name: categories[:lunch]) }
-  let(:expenses) { [beer, whiskey, steak] }
-  let(:beer) do
-    {
-      price_cents: 2500,
-      name: 'Beer',
-      category: booze
-    }
-  end
-  let(:whiskey) do
-    {
-      price_cents: 35_000,
-      name: 'Whiskey',
-      category: booze
-    }
-  end
-  let(:steak) do
-    {
-      price_cents: 15_000,
-      name: 'Steak',
-      category: lunch
-    }
   end
 end

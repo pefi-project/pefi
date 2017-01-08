@@ -1,0 +1,80 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+  TargetRubyVersion: 2.3
+
+# Use UTF-8 as the source file encoding.
+Encoding:
+  Enabled: false
+
+################################## Style #######################################
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Style/Documentation:
+  Enabled: false
+
+Style/FormatString:
+  EnforcedStyle: format
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Style/ModuleFunction:
+  EnforcedStyle: module_function
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+################################## Metrics #####################################
+
+Metrics/AbcSize:
+  Max: 120
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 700
+
+Metrics/CyclomaticComplexity:
+  Max: 40
+
+Metrics/LineLength:
+  Max: 180
+
+Metrics/MethodLength:
+  Max: 70
+
+Metrics/ModuleLength:
+  Max: 500
+
+Metrics/ParameterLists:
+  Max: 7
+
+Metrics/PerceivedComplexity:
+  Max: 27
+
+#################################### Lint ######################################
+
+Lint/HandleExceptions:
+  Enabled: false

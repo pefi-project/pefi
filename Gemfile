@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl'
   gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
   gem 'shoulda-matchers'
   gem 'guard-rspec', require: false
   gem 'fuubar'
